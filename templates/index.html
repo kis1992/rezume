@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Портфолио</title>
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
+  <script src="/static/admin/js/nav_sidebar.js" defer></script>
+
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css">
+<style type="text/css">
+    .content div div {
+        padding: 5px;
+        margin: 3px;
+    }
+</style>
+    </head>
+    <body class="app-auth model-user change-form" data-admin-utc-offset="0">
+        <div class="main shifted" id="main">
+            <nav class="sticky" id="nav-sidebar">
+  
+
+              
+                <div class="app-personal_data module current-app">
+                  <table>
+                    <caption>
+                      <a href="/admin/personal_data/" class="section" title="Models in the Personal_Data application">Все резюме</a>
+                    </caption>
+                    
+                      <tbody><tr class="model-person current-model">
+                        
+                          <th scope="row"><a href="/admin/personal_data/person/" aria-current="page">Персональные данные</a></th>
+                        
+            
+                        
+                          <td><a href="/admin/personal_data/person/add/" class="addlink">Добавить</a></td>
+                        
+            
+                        
+                      </tr>
+                    
+                  </tbody></table>
+                </div>
+              
+            
+            
+            </nav>
+            <div class="content">
+                <div id="content" class="colM">
+                    {% for person in persons %}
+                    <h1>Резюме #{{person.id}}</h1>
+                    <div>
+
+
+                        <fieldset class="module aligned ">
+                          
+                          
+                          
+                              <div class="form-row field-name">
+                                  
+                                  
+                                      <div>
+                                          
+                                          
+                                              <label class="required" for="id_name">персона:  </label>
+                                              
+                                              <label class="required" for="id_name">{{person.name}} {{person.surname}}</label>
+                                              
+                                          
+                                          
+                                      </div>
+                                  
+                              </div>
+                          
+                              
+                          
+                              <div class="form-row field-birthday">
+                                  
+                                  
+                                      <div>
+                                          
+                                          
+                                              <label class="required" for="id_birthday">дата рождения:</label>
+                                              
+                                                  <input type="text" name="birthday" value="{{person.birthday}}" class="vDateField" size="10" required="" id="id_birthday"><span class="datetimeshortcuts">&nbsp;
+                                              
+                                          
+                                    
+                                  
+                              </div>
+                          
+                              <div class="form-row field-education">
+                                  
+                                  
+                                      <div>
+                                          
+                                          
+                                              <label class="required" for="id_education">образование:</label>
+                                              
+                                                  <textarea name="education" cols="40" rows="10" class="vLargeTextField" required="" id="id_education">{{person.education}}</textarea>
+                                              
+                                          
+                                          
+                                      </div>
+                                  
+                              </div>
+                          
+                              <div class="form-row field-skills">
+                                  
+                                  
+                                      <div>
+                                          
+                                          
+                                              <label class="required" for="id_skills">Skills:</label>
+                                              
+                                                  <textarea name="skills" cols="40" rows="10" class="vLargeTextField" required="" id="id_skills">{{person.skills}}</textarea>
+                                              
+                                          
+                                          
+                                      </div>
+                                  
+                              </div>
+                          
+                              <div class="form-row field-social">
+                                  
+                                  
+                                      <div>
+                                          
+                                                
+                                              <label class="required" for="id_social">Social:</label>
+                                             
+                                            
+
+                                                  <a href="{{person.social}}">{{person.social}}</a>
+
+                                            
+                                              
+                                          
+                                          
+                                      </div>
+                                  
+                              </div>
+                          
+                              <div class="form-row field-tags">
+                                  
+                                  
+                                      <div>
+                                          
+                                          
+                                              <label class="required" for="id_tags">Tags:</label>
+                                              
+                                                  <label class="required" for="id_tags">{{person.tags}}</label>
+                                              
+                                          
+                                          
+                                      </div>
+                                  
+                              </div>
+                          
+                        </fieldset>
+                     
+                      
+                        {% endfor %}
+                        
+                            <script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js" async="">
+                            </script>
+                        
+                        
+                        
+                        
+                        <script id="django-admin-prepopulated-fields-constants" src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+                        </script>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
